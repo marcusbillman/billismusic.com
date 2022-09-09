@@ -14,6 +14,7 @@ module.exports = {
       'white/30': 'rgba(255, 255, 255, 0.3)',
       'white/1': 'rgba(255, 255, 255, 0.01)',
       black: 'rgba(0, 0, 0, 1.0)',
+      transparent: 'transparent',
     },
     fontFamily: {
       sans: ['Syne', ...defaultTheme.fontFamily.sans],
