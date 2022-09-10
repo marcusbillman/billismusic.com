@@ -1,0 +1,16 @@
+---
+import Icon, { IconName } from './Icon.astro';
+
+export interface Props {
+  icon: IconName;
+  primary?: boolean;
+}
+
+const { icon, primary = false } = Astro.props;
+---
+
+<a class={`flex items-center justify-center grow-0 w-max border ${primary ? 'border-orange/30' : 'border-white/30'} rounded-full p-4`}>
+  <span class={primary ? 'text-orange' : 'text-white'}>
+    <Icon name={icon} />
+  </span>
+</a>
