@@ -6,15 +6,21 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     colors: {
-      orange: 'rgba(255, 119, 0, 1.0)',
-      'orange/50': 'rgba(255, 119, 0, 0.5)',
-      'orange/30': 'rgba(255, 119, 0, 0.3)',
-      white: 'rgba(255, 255, 255, 1.0)',
-      'white/50': 'rgba(255, 255, 255, 0.5)',
-      'white/30': 'rgba(255, 255, 255, 0.3)',
-      'white/1': 'rgba(255, 255, 255, 0.01)',
-      black: 'rgba(0, 0, 0, 1.0)',
+      orange: '#ff7700',
+      white: '#ffffff',
+      black: '#000000',
       transparent: 'transparent',
+    },
+    opacity: {
+      90: '0.9',
+      70: '0.7',
+      50: '0.5',
+      30: '0.3',
+    },
+    backgroundImage: {
+      hero: 'url("/assets/bg-hero.jpg")',
+      texture: 'url("/assets/bg-texture-tiling.jpg")',
+      logo: 'url("/assets/billis-logo-64.png")',
     },
     fontFamily: {
       sans: ['Syne', ...defaultTheme.fontFamily.sans],
