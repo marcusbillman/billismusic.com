@@ -1,8 +1,10 @@
 ---
 export interface Props {
-  name: 'northEast' | 'playArrow' | 'spotify' | 'appleMusic' | 'youtube' | 'instagram' | 'facebook';
+  name: IconName;
   size?: number;
 }
+
+export type IconName = 'northEast' | 'playArrow' | 'spotify' | 'appleMusic' | 'youtube' | 'instagram' | 'facebook';
 
 const { name, size = 24 } = Astro.props;
 ---
