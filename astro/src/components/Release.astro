@@ -1,0 +1,33 @@
+---
+import Button from "./Button.astro";
+import IconButton from "./IconButton.astro";
+
+export interface Props {
+  featured?: boolean;
+}
+
+const { featured = false } = Astro.props;
+---
+
+<div class={`relative flex isolate ${featured ? 'xl:justify-center xl:py-4' : ''}`}>
+  <div aria-hidden="true" class={featured ? 'absolute inset-0 bg-[url("https://picsum.photos/200")] bg-cover bg-center opacity-30 blur-3xl -z-10' : ''}></div>
+  <div>
+    <div class={`flex gap-6 max-w-5xl lg:gap-x-8 ${featured ? 'xl:flex-row-reverse' : ''}`}>
+      <div class={`w-24 h-24 bg-orange lg:w-40 lg:h-40 ${featured ? 'xl:w-80 xl:h-80' : ''}`}></div>
+      <div class={`flex flex-col justify-between ${featured ? 'xl:items-end xl:justify-center xl:gap-8' : ''}`}>
+        <div class={`uppercase ${featured ? 'xl:text-right' : ''}`}>
+          <p class="text-white/50 font-bold">Single</p>
+          <p class={`${featured ? 'text-orange xl:text-6xl' : ''} text-2xl font-extrabold mt-2 lg:text-3xl`}>Type 1</p>
+        </div>
+        <div class="hidden xl:flex xl:items-center xl:gap-4">
+          <IconButton icon="playArrow" primary={featured} />
+          <Button text="Stream" href="#" primary={featured} />
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 mt-6 xl:hidden">
+      <IconButton icon="playArrow" primary={featured} />
+      <Button text="Stream" href="#" primary={featured} />
+    </div>
+  </div>
+</div>
