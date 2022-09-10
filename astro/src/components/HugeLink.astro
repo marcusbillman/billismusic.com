@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+
+export interface Props {
+  text: string;
+  href: string;
+}
+
+const { text, href } = Astro.props;
+---
+
+<a href={href} class="flex items-center gap-4">
+  <span class="text-2xl font-extrabold uppercase md:text-3xl">{text}</span>
+  <span class="text-white/50">
+    <Icon name="northEast" />
+  </span>
+</a>
