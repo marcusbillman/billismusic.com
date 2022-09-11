@@ -10,9 +10,9 @@ export interface Props {
 const { text, href, primary = false } = Astro.props;
 ---
 
-<a href={href} class={`flex items-center grow-0 gap-2 w-max border ${primary ? 'border-orange/30' : 'border-white/30'} rounded-full px-6 py-4`}>
+<a href={href} class={`flex items-center grow-0 gap-2 w-max border group hover:bg-white/30 hover:border-white transition-colors ${primary ? 'border-orange/30 hover:bg-orange/30 hover:border-orange' : 'border-white/30'} rounded-full px-6 py-4`}>
   <span class={`${primary ? 'text-orange' : ''} font-bold uppercase`}>{text}</span>
-  <span class={primary ? 'text-orange/50' : 'text-white/50'}>
+  <span class={`transition-colors ${primary ? 'text-orange/50 group-hover:text-orange' : 'text-white/50 group-hover:text-white'}`}>
     <Icon name="northEast" size={16} />
   </span>
 </a>
