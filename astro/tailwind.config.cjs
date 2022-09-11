@@ -25,6 +25,17 @@ module.exports = {
     fontFamily: {
       sans: ['Syne', ...defaultTheme.fontFamily.sans],
     },
+    extend: {
+      animation: {
+        'marquee-fast': 'marquee 5s linear infinite',
+        'marquee-slow': 'marquee 15s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+    },
   },
   plugins: [],
 };
