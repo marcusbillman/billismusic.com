@@ -7,19 +7,23 @@ import Marquee from '../components/Marquee.astro';
 import ReleasesSection from '../components/ReleasesSection.astro';
 import AboutSection from '../components/AboutSection.astro';
 import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-  <div aria-hidden="true" class="absolute inset-0 -z-10 bg-texture bg-cover bg-fixed before:absolute before:inset-0 before:bg-black/[0.7]"></div>
-  <main>
-    <Banner />
-    <Hero />
-    <BioSection />
-    <Marquee />
-    <ReleasesSection />
-    <Marquee />
-    <AboutSection />
-    <Marquee />
-    <Footer />
-  </main>
+  <div class="grid lg:grid-cols-[1fr_auto]">
+    <div aria-hidden="true" class="absolute inset-0 -z-10 bg-texture bg-cover bg-fixed before:absolute before:inset-0 before:bg-black/[0.7]"></div>
+    <Navigation />
+    <main class="overflow-x-hidden">
+      <Banner />
+      <Hero />
+      <BioSection />
+      <Marquee />
+      <ReleasesSection />
+      <Marquee />
+      <AboutSection />
+      <Marquee />
+      <Footer />
+    </main>
+  </div>
 </Layout>
