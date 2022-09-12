@@ -11,11 +11,21 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'text',
-      type: 'string',
-      title: 'Text',
-      description:
-        'This short message shows at the top of the website. To make part of the message bold, surround it with *asterisks*.',
+      name: 'content',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [],
+          marks: {
+            decorators: [{ title: 'Bold', value: 'strong' }],
+            annotations: [],
+          },
+          lists: [],
+        },
+      ],
+      title: 'Banner Text',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'url',
