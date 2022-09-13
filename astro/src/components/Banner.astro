@@ -1,15 +1,23 @@
 ---
 import Icon from '../components/Icon.astro';
+import type { Block } from '@sanity/types';
+
+export interface Props {
+  blocks: Block[];
+  url?: string;
+}
+
+const { blocks, url } = Astro.props;
 ---
 
 <a
-  href="https://google.com"
+  href={url}
   target="_blank"
-  class="flex gap-2 items-center justify-between px-4 py-6 border-b border-white/30 backdrop-blur-2xl md:h-16 md:justify-center"
+  class="flex gap-2 items-center justify-between px-4 py-6 uppercase border-b border-white/30 backdrop-blur-2xl md:h-16 md:justify-center"
 >
-  <p class="font-bold uppercase">
-    <span class="font-extrabold">Help</span> is out now on streaming services
-  </p>
+  {blocks[0].children.map((span) => (
+    <span class={span.marks.includes('strong') ? 'font-extrabold' : 'font-bold'}>{span.text}</span>
+  ))}
   <span class="text-white/50">
     <Icon name="northEast" />
   </span>

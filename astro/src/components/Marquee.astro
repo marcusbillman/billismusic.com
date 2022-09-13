@@ -1,12 +1,17 @@
+---
+export interface Props {
+  lines: string[];
+}
+
+const { lines } = Astro.props;
+
+const duplicatedLines = [...lines, ...lines];
+---
+
 <div aria-hidden="true" class="h-16 flex items-center gap-8 backdrop-blur-2xl border-y border-white/30 text-white/50 font-bold uppercase overflow-hidden">
   <div class="flex items-center px-4 gap-8 animate-marquee-slow">
-    <span class="whitespace-nowrap">So many fucking syllables to read</span>
-    <span class="whitespace-nowrap">It's hard to stop the flame once the gas is lit</span>
-    <span class="whitespace-nowrap">All I want is change and just appreciate decent moments</span>
-    <span class="whitespace-nowrap">Now I draw the line, I’ve lost my mind</span>
-    <span class="whitespace-nowrap">So many fucking syllables to read</span>
-    <span class="whitespace-nowrap">It's hard to stop the flame once the gas is lit</span>
-    <span class="whitespace-nowrap">All I want is change and just appreciate decent moments</span>
-    <span class="whitespace-nowrap">Now I draw the line, I’ve lost my mind</span>
+    {duplicatedLines.map((line) => (
+      <span class="whitespace-nowrap">{line}</span>
+    ))}
   </div>
 </div>

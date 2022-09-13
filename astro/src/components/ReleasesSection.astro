@@ -1,20 +1,20 @@
 ---
-import Release from "./Release.astro";
+import Release, { ReleaseDocument } from "./Release.astro";
+import type { SanityDocument } from "@sanity/client";
+
+export interface Props {
+  releases: SanityDocument[];
+}
+
+const { releases } = Astro.props;
 ---
 
 <section class="px-4 py-24 bg-black lg:py-64">
   <ul class="grid gap-16 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-32">
-    <li class="xl:col-span-full">
-      <Release featured={true} />
-    </li>
-    <li>
-      <Release />
-    </li>
-    <li>
-      <Release />
-    </li>
-    <li>
-      <Release />
-    </li>
+    {releases.map((release, index) => (
+      <li class={index === 0 ? 'xl:col-span-full' : ''}>
+        <Release release={release as ReleaseDocument} featured={index === 0} />
+      </li>
+    ))}
   </ul>
 </section>

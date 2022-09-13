@@ -8,6 +8,20 @@ import ReleasesSection from '../components/ReleasesSection.astro';
 import AboutSection from '../components/AboutSection.astro';
 import Footer from '../components/Footer.astro';
 import Navigation from '../components/Navigation.astro';
+
+import sanityClient, { SanityDocument } from '@sanity/client';
+
+const client = sanityClient({
+  projectId: import.meta.env.SANITY_PROJECT_ID,
+  dataset: import.meta.env.SANITY_DATASET,
+  apiVersion: '2022-09-12',
+  useCdn: false,
+})
+
+const bannerMessage: SanityDocument = await client.fetch('*[_type == "bannerMessage"][0]');
+const bio: SanityDocument = await client.fetch('*[_type == "bio"][0]');
+const lyricsMarquee: SanityDocument = await client.fetch('*[_type == "lyricsMarquee"][0]');
+const releases: SanityDocument[] = await client.fetch('*[_type == "release"]{..., "coverArtUrl": coverArt.asset->url}');
 ---
 
 <Layout>
@@ -15,14 +29,14 @@ import Navigation from '../components/Navigation.astro';
     <div aria-hidden="true" class="absolute inset-0 -z-10 bg-texture bg-cover bg-fixed before:absolute before:inset-0 before:bg-black/[0.7]"></div>
     <Navigation />
     <main class="overflow-x-hidden">
-      <Banner />
+      <Banner blocks={bannerMessage.content} url={bannerMessage.url} />
       <Hero />
-      <BioSection />
-      <Marquee />
-      <ReleasesSection />
-      <Marquee />
+      <BioSection blocks={bio.content} />
+      <Marquee lines={lyricsMarquee.lyricsMarquee1} />
+      <ReleasesSection releases={releases} />
+      <Marquee lines={lyricsMarquee.lyricsMarquee2} />
       <AboutSection />
-      <Marquee />
+      <Marquee lines={lyricsMarquee.lyricsMarquee3} />
       <Footer />
     </main>
   </div>
