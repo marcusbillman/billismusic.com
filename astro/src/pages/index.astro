@@ -29,7 +29,7 @@ const releases: SanityDocument[] = await client.fetch('*[_type == "release"]{...
     <div aria-hidden="true" class="absolute inset-0 -z-10 bg-texture bg-cover bg-fixed before:absolute before:inset-0 before:bg-black/[0.7]"></div>
     <Navigation />
     <main class="overflow-x-hidden">
-      <Banner blocks={bannerMessage.content} url={bannerMessage.url} />
+      {bannerMessage.isEnabled && <Banner blocks={bannerMessage.content} url={bannerMessage.url} />}
       <Hero />
       <BioSection blocks={bio.content} />
       <Marquee lines={lyricsMarquee.lyricsMarquee1} />
