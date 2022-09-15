@@ -11,9 +11,11 @@ const { blocks } = Astro.props;
 <section class="px-4 py-24 md:px-32 lg:py-64">
   <div class="max-w-[32ch] flex flex-col gap-8 text-2xl font-bold lg:text-5xl lg:gap-16">
     {blocks.map((block) => (
-    <p>{block.children.map((span) => (
-      <span class={span.marks.includes('strong') ? 'font-extrabold text-orange' : 'font-bold'}>{span.text}</span>
-    ))}</p>
-  ))}
+      <p class="leading-normal">
+        {block.children.map((span) => (
+          <span class={span.marks.includes('strong') ? 'font-extrabold text-orange' : 'font-bold'}>{span.text}</span>
+        ))}
+      </p>
+    ))}
   </div>
 </section>
