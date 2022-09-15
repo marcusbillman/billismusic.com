@@ -4,7 +4,7 @@ export default {
   title: 'Banner Message',
   fields: [
     {
-      name: 'show',
+      name: 'isEnabled',
       type: 'boolean',
       title: 'Show Banner',
       description: 'Disable this to remove the banner from the website.',
