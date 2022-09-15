@@ -25,6 +25,10 @@ module.exports = {
     fontFamily: {
       sans: ['Syne', ...defaultTheme.fontFamily.sans],
     },
+    lineHeight: {
+      normal: 1.2,
+      none: 1.0,
+    },
     extend: {
       animation: {
         'marquee-fast': 'marquee 5s linear infinite',
