@@ -23,8 +23,6 @@ export type ReleaseDocument = {
 }
 
 const { release, featured = false } = Astro.props;
-
-console.log(release.coverArtUrl)
 ---
 
 <div class={`relative flex isolate ${featured ? 'xl:justify-center xl:py-4' : ''}`}>
