@@ -1,0 +1,19 @@
+---
+import type { Block } from '@sanity/types';
+
+export interface Props {
+  blocks: Block[];
+}
+
+const { blocks } = Astro.props;
+---
+
+<>
+  {blocks.map((block) => (
+    <p class="leading-normal">
+      {block.children.map((span) => (
+        <span class={span.marks.includes('strong') ? 'font-extrabold text-orange' : 'font-bold'}>{span.text}</span>
+      ))}
+    </p>
+  ))}
+</>
