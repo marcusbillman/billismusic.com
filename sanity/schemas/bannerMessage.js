@@ -25,13 +25,18 @@ export default {
         },
       ],
       title: 'Banner Text',
-      validation: (Rule) => Rule.required(),
+      description: 'The banner only fits a single paragraph of text.',
+      validation: (Rule) =>
+        Rule.required()
+          .max(1)
+          .error('The banner only fits a single paragraph of text'),
     },
     {
       name: 'url',
       type: 'url',
       title: 'Link URL',
-      description: 'Where the user is taken when clicking the banner.',
+      description:
+        'Where the user goes when clicking the banner. Leave this empty to make the banner non-clickable.',
     },
   ],
   __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
