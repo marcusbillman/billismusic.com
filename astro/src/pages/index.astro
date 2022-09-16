@@ -5,7 +5,7 @@ import Hero from '../components/Hero.astro';
 import BioSection from '../components/BioSection.astro';
 import Marquee from '../components/Marquee.astro';
 import ReleasesSection from '../components/ReleasesSection.astro';
-import AboutSection from '../components/AboutSection.astro';
+import AboutSection, { AboutDocument } from '../components/AboutSection.astro';
 import Footer from '../components/Footer.astro';
 import Navigation from '../components/Navigation.astro';
 
@@ -22,6 +22,7 @@ const bannerMessage: SanityDocument = await client.fetch('*[_type == "bannerMess
 const bio: SanityDocument = await client.fetch('*[_type == "bio"][0]');
 const lyricsMarquee: SanityDocument = await client.fetch('*[_type == "lyricsMarquee"][0]');
 const releases: SanityDocument[] = await client.fetch('*[_type == "release"]{..., "coverArtUrl": coverArt.asset->url}');
+const about: AboutDocument = await client.fetch('*[_type == "about"][0]');
 ---
 
 <Layout>
@@ -35,7 +36,7 @@ const releases: SanityDocument[] = await client.fetch('*[_type == "release"]{...
       <Marquee lines={lyricsMarquee.lyricsMarquee1} />
       <ReleasesSection releases={releases} />
       <Marquee lines={lyricsMarquee.lyricsMarquee2} />
-      <AboutSection />
+      <AboutSection document={about} />
       <Marquee lines={lyricsMarquee.lyricsMarquee3} />
       <Footer />
     </main>
