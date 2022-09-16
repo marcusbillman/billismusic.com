@@ -1,5 +1,6 @@
 ---
 import Icon from '../components/Icon.astro';
+import SanityBlocks from './SanityBlocks.astro';
 import type { Block } from '@sanity/types';
 
 export interface Props {
@@ -17,11 +18,9 @@ const hasUrl = url !== undefined && url.length > 0;
   target="_blank"
   class={`flex gap-2 items-center justify-between px-4 py-6 uppercase border-b border-white/30 backdrop-blur-2xl transition-colors md:h-16 md:justify-center ${hasUrl ? 'group hover:text-orange' : ''}`}
 >
-  <span class={!hasUrl ? 'w-full text-center' : ''}>
-    {blocks[0].children.map((span) => (
-      <span class={span.marks.includes('strong') ? 'font-extrabold' : 'font-bold'}>{span.text}</span>
-    ))}
-  </span>
+  <div class={!hasUrl ? 'w-full text-center' : ''}>
+    <SanityBlocks blocks={blocks} />
+  </div>
   {hasUrl && <span class="text-white/50 transition-colors group-hover:text-orange">
     <Icon name="northEast" />
   </span>}
