@@ -31,8 +31,8 @@ module.exports = {
     },
     extend: {
       animation: {
-        'marquee-fast': 'marquee 5s linear infinite',
-        'marquee-slow': 'marquee 15s linear infinite',
+        'marquee-fast': 'marquee 10s linear infinite',
+        'marquee-slow': 'marquee 30s linear infinite',
       },
       keyframes: {
         marquee: {
