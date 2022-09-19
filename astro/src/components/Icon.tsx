@@ -8,6 +8,7 @@ export interface Props {
 export type IconName =
   | 'northEast'
   | 'playArrow'
+  | 'stop'
   | 'spotify'
   | 'appleMusic'
   | 'youtube'
@@ -30,6 +31,11 @@ const Icon: FC<Props> = ({ name, size = 24 }) => (
     {name === 'playArrow' && (
       <>
         <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" />
+      </>
+    )}
+    {name === 'stop' && (
+      <>
+        <path d="M15 15v18Zm-3 21V12h24v24Zm3-3h18V15H15Z" />
       </>
     )}
     {name === 'spotify' && (
