@@ -1,7 +1,7 @@
 ---
 import Button from "./Button.astro";
-import IconButton from "./IconButton.astro";
-import type { ImageAsset, Slug } from "@sanity/types";
+import type { FileAsset, ImageAsset, Slug } from "@sanity/types";
+import ReleasePreviewButton from "./ReleasePreviewButton";
 
 export interface Props {
   release: ReleaseDocument;
@@ -16,6 +16,13 @@ export type ReleaseDocument = {
   _updatedAt: string,
   coverArt: ImageAsset,
   coverArtUrl: string,
+  previewAudio: {
+    _type: string,
+    asset: FileAsset,
+    startTime: number,
+    endTime: number,
+  },
+  previewAudioUrl: string,
   slug: Slug,
   streamUrl: string,
   subtitle: string,
@@ -29,20 +36,20 @@ const { release, featured = false } = Astro.props;
   <div aria-hidden="true" class={featured ? `absolute inset-0 bg-cover bg-center opacity-30 blur-3xl -z-10` : ''} style={{backgroundImage: `url(${release.coverArtUrl})`}}></div>
   <div>
     <div class={`flex gap-6 max-w-5xl lg:gap-8 ${featured ? 'xl:flex-row-reverse xl:gap-24' : ''}`}>
-      <div class={`w-24 h-24 bg-white/30 bg-cover lg:w-40 lg:h-40 ${featured ? 'xl:w-80 xl:h-80' : ''}`} style={{backgroundImage: `url(${release.coverArtUrl})`}}></div>
+      <div class={`w-24 h-24 flex-shrink-0 bg-white/30 bg-center bg-cover lg:w-40 lg:h-40 ${featured ? 'xl:w-80 xl:h-80' : ''}`} style={{backgroundImage: `url(${release.coverArtUrl})`}}></div>
       <div class={`flex flex-col justify-between ${featured ? 'xl:items-end xl:justify-center xl:gap-8' : ''}`}>
         <div class={`uppercase ${featured ? 'xl:text-right' : ''}`}>
           <p class="text-white/50 font-bold">{release.subtitle}</p>
           <p class={`${featured ? 'text-orange xl:text-6xl' : ''} text-2xl font-extrabold mt-2 lg:text-3xl`}>{release.title}</p>
         </div>
         <div class="hidden xl:flex xl:items-center xl:gap-4">
-          <IconButton icon="playArrow" primary={featured} />
+          <ReleasePreviewButton release={release} client:load />
           <Button text="Stream" href={release.streamUrl} primary={featured} />
         </div>
       </div>
     </div>
     <div class="flex items-center gap-4 mt-6 xl:hidden">
-      <IconButton icon="playArrow" primary={featured} />
+      <ReleasePreviewButton release={release} client:load />
       <Button text="Stream" href={release.streamUrl} primary={featured} />
     </div>
   </div>

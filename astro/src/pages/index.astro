@@ -21,7 +21,7 @@ const client = sanityClient({
 const bannerMessage: SanityDocument = await client.fetch('*[_type == "bannerMessage"][0]');
 const bio: SanityDocument = await client.fetch('*[_type == "bio"][0]');
 const lyricsMarquee: SanityDocument = await client.fetch('*[_type == "lyricsMarquee"][0]');
-const releases: SanityDocument[] = await client.fetch('*[_type == "release"]{..., "coverArtUrl": coverArt.asset->url}');
+const releases: SanityDocument[] = await client.fetch('*[_type == "release"]{..., "coverArtUrl": coverArt.asset->url, "previewAudioUrl": previewAudio.asset->url}');
 const about: AboutDocument = await client.fetch('*[_type == "about"][0]');
 ---
 
