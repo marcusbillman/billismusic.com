@@ -25,7 +25,7 @@ const releases: SanityDocument[] = await client.fetch('*[_type == "release"]{...
 const about: AboutDocument = await client.fetch('*[_type == "about"][0]');
 ---
 
-<Layout>
+<Layout description="Billis is a rapper and producer from northern Sweden.">
   <div class="grid lg:grid-cols-[1fr_auto]">
     <div aria-hidden="true" class="absolute inset-0 -z-10 bg-texture bg-cover bg-fixed before:absolute before:inset-0 before:bg-black/[0.7]"></div>
     <Navigation />
