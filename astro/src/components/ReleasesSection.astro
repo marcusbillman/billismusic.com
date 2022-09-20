@@ -9,7 +9,8 @@ export interface Props {
 const { releases } = Astro.props;
 ---
 
-<section class="px-4 py-24 bg-black lg:py-64">
+<section aria-labelledby="releases-heading" class="px-4 py-24 bg-black lg:py-64">
+  <h2 id="releases-heading" class="sr-only">Releases</h2>
   <ul class="grid gap-16 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-32">
     {releases.map((release, index) => (
       <li class={index === 0 ? 'xl:col-span-full' : ''}>

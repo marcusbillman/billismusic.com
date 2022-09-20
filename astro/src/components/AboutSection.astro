@@ -20,7 +20,8 @@ export type AboutDocument = {
 const { document } = Astro.props;
 ---
 
-<section class="px-4 py-24 lg:py-64 overflow-x-hidden">
+<section aria-labelledby="about-heading" class="px-4 py-24 lg:py-64 overflow-x-hidden">
+  <h2 id="about-heading" class="sr-only">About</h2>
   <div class="relative font-bold md:text-2xl">
     <div aria-hidden="true" class="absolute top-36 -left-24 w-72 h-72 bg-orange/30 blur-[100px] pointer-events-none lg:-top-64 lg:w-[700px] lg:h-[700px] lg:blur-[200px]"></div>
     <div aria-hidden="true" class="absolute bottom-12 -right-24 w-72 h-72 bg-orange/30 blur-[100px] pointer-events-none lg:-bottom-64 lg:right:0 lg:left-[50vw] lg:w-[700px] lg:h-[700px] lg:blur-[200px]"></div>

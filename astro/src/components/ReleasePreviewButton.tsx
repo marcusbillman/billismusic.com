@@ -68,6 +68,8 @@ const ReleasePreviewButton: FC<Props> = ({ release, primary = false }) => {
   return (
     <button
       onClick={() => togglePlay()}
+      aria-label={isPlaying ? 'Stop preview' : 'Play preview'}
+      type="button"
       className={`relative flex items-center justify-center grow-0 w-max border cursor-pointer group hover:bg-white/30 hover:border-white transition-colors ${
         primary
           ? 'border-orange/30 hover:bg-orange/30 hover:border-orange'
@@ -83,6 +85,7 @@ const ReleasePreviewButton: FC<Props> = ({ release, primary = false }) => {
           height={RADIUS * 2}
           width={RADIUS * 2}
           className="absolute inset-0 -rotate-90"
+          aria-hidden
         >
           <circle
             stroke="white"
