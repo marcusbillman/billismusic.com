@@ -20,7 +20,6 @@ module.exports = {
     backgroundImage: {
       hero: 'url("/assets/bg-hero.jpg")',
       texture: 'url("/assets/bg-texture-tiling.jpg")',
-      logo: 'url("/assets/billis-logo-64.png")',
     },
     fontFamily: {
       sans: ['Syne', ...defaultTheme.fontFamily.sans],
