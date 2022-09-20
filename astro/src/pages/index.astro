@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Banner from '../components/Banner.astro';
 import Hero from '../components/Hero.astro';
 import BioSection from '../components/BioSection.astro';
-import Marquee from '../components/Marquee.astro';
+import LyricsMarquee from '../components/LyricsMarquee.astro';
 import ReleasesSection from '../components/ReleasesSection.astro';
 import AboutSection, { AboutDocument } from '../components/AboutSection.astro';
 import Footer from '../components/Footer.astro';
@@ -33,11 +33,11 @@ const about: AboutDocument = await client.fetch('*[_type == "about"][0]');
       {bannerMessage.isEnabled && <Banner blocks={bannerMessage.content} url={bannerMessage.url} />}
       <Hero />
       <BioSection blocks={bio.content} />
-      <Marquee lines={lyricsMarquee.lyricsMarquee1} />
+      <LyricsMarquee lines={lyricsMarquee.lyricsMarquee1} />
       <ReleasesSection releases={releases} />
-      <Marquee lines={lyricsMarquee.lyricsMarquee2} />
+      <LyricsMarquee lines={lyricsMarquee.lyricsMarquee2} />
       <AboutSection document={about} />
-      <Marquee lines={lyricsMarquee.lyricsMarquee3} />
+      <LyricsMarquee lines={lyricsMarquee.lyricsMarquee3} />
       <Footer />
     </main>
   </div>
