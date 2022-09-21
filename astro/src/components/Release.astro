@@ -43,13 +43,13 @@ const { release, featured = false } = Astro.props;
           <p class={`${featured ? 'text-orange xl:text-6xl' : ''} text-2xl font-extrabold mt-2 lg:text-3xl`}>{release.title}</p>
         </div>
         <div class="hidden xl:flex xl:items-center xl:gap-4">
-          <ReleasePreviewButton release={release} client:visible />
+          {release.previewAudioUrl && <ReleasePreviewButton release={release} client:visible />}
           <Button text="Stream" href={release.streamUrl} primary={featured} />
         </div>
       </div>
     </div>
     <div class="flex items-center gap-4 mt-6 xl:hidden">
-      <ReleasePreviewButton release={release} client:visible />
+      {release.previewAudioUrl && <ReleasePreviewButton release={release} client:visible />}
       <Button text="Stream" href={release.streamUrl} primary={featured} />
     </div>
   </div>
