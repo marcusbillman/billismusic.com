@@ -10,18 +10,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 200,
-      },
-      title: 'Slug (technical name)',
-      description:
-        'Required for some website features, like audio preview. Click "Generate" to create a slug based on the Title above.',
-      validation: (Rule) => Rule.required(),
-    },
-    {
       name: 'subtitle',
       type: 'string',
       title: 'Subtitle',
