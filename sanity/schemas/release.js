@@ -20,6 +20,7 @@ export default {
       name: 'coverArt',
       type: 'image',
       title: 'Cover Art',
+      description: 'Should be square. Aim for a size around 400×400.',
       validation: (Rule) => Rule.required(),
     },
     {
