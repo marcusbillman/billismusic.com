@@ -83,4 +83,32 @@ export default {
   initialValue: {
     subtitle: 'Single',
   },
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'subtitle',
+      releaseDate: 'releaseDate',
+      coverArt: 'coverArt',
+    },
+    prepare(selection) {
+      const { title, subtitle, releaseDate, coverArt } = selection;
+      return {
+        title: title,
+        subtitle: `${subtitle} • ${releaseDate || 'No date'}`,
+        media: coverArt,
+      };
+    },
+  },
+  orderings: [
+    {
+      title: 'Release Date',
+      name: 'releaseDate',
+      by: [{ field: 'releaseDate', direction: 'desc' }],
+    },
+    {
+      title: 'Title',
+      name: 'title',
+      by: [{ field: 'title', direction: 'asc' }],
+    },
+  ],
 };
