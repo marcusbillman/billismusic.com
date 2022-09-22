@@ -44,5 +44,11 @@ const { title, description } = Astro.props;
         @apply scroll-smooth;
       }
     </style>
+    <script>
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+      gsap.registerPlugin(ScrollTrigger);
+    </script>
   </body>
 </html>
