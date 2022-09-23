@@ -42,7 +42,7 @@ const { document } = Astro.props;
   import { gsap } from "gsap";
 
   gsap.utils.toArray('[data-gsap="about-paragraph"]').forEach((element, index) => {
-    gsap.matchMedia().add('(min-width: 768px)', () => {
+    gsap.matchMedia().add('(min-width: 1024px)', () => {
       gsap.to(element as gsap.DOMTarget, {
         y: (index + 1) * -100,
         scrollTrigger: {
