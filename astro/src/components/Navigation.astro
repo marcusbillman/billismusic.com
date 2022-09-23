@@ -2,7 +2,7 @@
 import Icon from "./Icon";
 ---
 
-<div class="fixed bottom-0 left-0 right-0 h-16 bg-black/50 backdrop-blur-2xl border-t border-white/30 z-30 lg:static lg:top-0 lg:right-auto lg:w-16 lg:h-auto lg:border-r lg:border-t-0">
+<div data-gsap="navigation" class="fixed bottom-0 left-0 right-0 h-16 bg-black/50 backdrop-blur-2xl border-t border-white/30 z-30 lg:static lg:top-0 lg:right-auto lg:w-16 lg:h-auto lg:border-r lg:border-t-0">
   <nav class="lg:sticky lg:top-0 lg:h-screen flex lg:flex-col">
     <a href="#" class="w-16 h-16 flex items-center justify-center border-r border-white/30 lg:border-b lg:border-r-0">
       <img src="/assets/billis-logo-64.png" alt="Billis Logo" class="h-10">
@@ -23,3 +23,19 @@ import Icon from "./Icon";
     </div>
   </nav>
 </div>
+
+<script>
+  import { gsap } from "gsap";
+
+  gsap.matchMedia().add('(max-width: 768px)', () => {
+    gsap.to('[data-gsap="navigation"]', {
+      yPercent: 100,
+      duration: 0.3,
+      ease:'power1.in',
+      scrollTrigger: {
+        trigger: '[data-gsap="footer"]',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  });
+</script>
