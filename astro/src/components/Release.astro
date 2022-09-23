@@ -35,10 +35,10 @@ const { release, featured = false } = Astro.props;
 <div class={`relative flex isolate ${featured ? 'xl:justify-center xl:py-4' : ''}`}>
   <div aria-hidden="true" class={featured ? `absolute inset-0 bg-cover bg-center opacity-30 blur-3xl -z-10` : ''} style={{backgroundImage: `url(${release.coverArtUrl})`}}></div>
   <div>
-    <div class={`flex gap-6 max-w-5xl lg:gap-8 ${featured ? 'xl:flex-row-reverse xl:gap-24' : ''}`}>
+    <div class={`flex gap-6 max-w-5xl lg:gap-8 ${featured ? 'xl:flex-row xl:gap-24' : ''}`}>
       <img src={release.coverArtUrl} alt="Cover art" class={`w-24 h-24 flex-shrink-0 object-cover object-center lg:w-40 lg:h-40 ${featured ? 'xl:w-80 xl:h-80' : ''}`}>
-      <div class={`flex flex-col justify-between gap-4 ${featured ? 'xl:items-end xl:justify-center xl:gap-8' : ''}`}>
-        <div class={`uppercase ${featured ? 'xl:text-right' : ''}`}>
+      <div class={`flex flex-col justify-between gap-4 ${featured ? 'xl:justify-center xl:gap-8' : ''}`}>
+        <div class="uppercase">
           <p class="text-white/50 font-bold">{release.subtitle}</p>
           <p class={`${featured ? 'text-orange xl:text-6xl' : ''} text-2xl font-extrabold mt-2 lg:text-3xl`}>{release.title}</p>
         </div>

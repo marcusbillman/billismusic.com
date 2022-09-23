@@ -11,9 +11,9 @@ const { releases } = Astro.props;
 
 <section aria-labelledby="releases-heading" class="px-4 py-24 bg-black lg:px-16 lg:py-64">
   <h2 id="releases-heading" class="sr-only">Releases</h2>
-  <ul class="grid gap-16 perspective md:grid-cols-2 xl:gap-x-8 xl:gap-y-32 2xl:grid-cols-3">
+  <ul class="max-w-7xl mx-auto grid gap-16 perspective md:grid-cols-2 xl:gap-x-8 xl:gap-y-32">
     {releases.map((release, index) => (
-      <li data-gsap="release" class={`origin-bottom ${index === 0 ? 'xl:col-span-full' : ''}`}>
+      <li data-gsap="release" class={`origin-bottom ${index === 0 ? 'md:col-span-full' : ''}`}>
         <Release release={release as ReleaseDocument} featured={index === 0} />
       </li>
     ))}
