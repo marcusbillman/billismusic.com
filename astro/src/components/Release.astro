@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro";
-import type { FileAsset, ImageAsset, Slug } from "@sanity/types";
+import type { FileAsset, ImageAsset } from "@sanity/types";
 import ReleasePreviewButton from "./ReleasePreviewButton";
 
 export interface Props {
@@ -23,7 +23,7 @@ export type ReleaseDocument = {
     endTime: number,
   },
   previewAudioUrl: string,
-  slug: Slug,
+  releaseDate: string,
   streamUrl: string,
   subtitle: string,
   title: string
