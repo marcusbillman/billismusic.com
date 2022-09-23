@@ -9,8 +9,26 @@ export interface Props {
 const { blocks } = Astro.props;
 ---
 
-<section class="px-4 py-24 md:px-16 lg:px-32 lg:py-64">
+<section data-gsap="bio-section" class="px-4 py-24 md:px-16 lg:px-32 lg:py-64">
   <div class="max-w-[32ch] flex flex-col gap-8 text-2xl font-bold lg:text-5xl lg:gap-16">
     <SanityBlocks blocks={blocks} />
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+
+  gsap.utils.toArray('[data-gsap="bio-section"] p').forEach((element) => {
+    gsap.from(element as gsap.DOMTarget, {
+      y: 70,
+      opacity: 0,
+      filter: 'blur(30px)',
+      ease: 'power1.out',
+      scrollTrigger: {
+        trigger: element as gsap.DOMTarget,
+        end: 'top center',
+        scrub: true,
+      },
+    });
+  });
+</script>
