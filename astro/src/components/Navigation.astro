@@ -27,11 +27,11 @@ import Icon from "./Icon";
 <script>
   import { gsap } from "gsap";
 
-  gsap.matchMedia().add('(max-width: 768px)', () => {
+  gsap.matchMedia().add('(max-width: 1024px)', () => {
     gsap.to('[data-gsap="navigation"]', {
       yPercent: 100,
       duration: 0.3,
-      ease:'power1.in',
+      ease: 'power1.in',
       scrollTrigger: {
         trigger: '[data-gsap="footer"]',
         toggleActions: 'play none none reverse',
