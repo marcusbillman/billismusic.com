@@ -3,9 +3,9 @@
   class="invisible relative h-[80vh] bg-[url('/assets/bg-hero.jpg')] bg-cover bg-[top_left_30%] bg-no-repeat border-b border-white/30 overflow-hidden md:bg-[top_center]"
 >
   <h1
-    class="invisible absolute bottom-32 text-6xl font-extrabold md:text-[200px] md:bottom-8"
+    class="absolute bottom-32 text-6xl font-extrabold md:text-[200px] md:bottom-8 motion-safe:invisible"
   >
-    <span class="flex gap-8 px-4 animate-marquee-fast">
+    <span class="flex gap-8 px-4 motion-safe:animate-marquee-fast">
       <span class="text-outline-white">BILLIS</span>
       <span aria-hidden="true">BILLIS</span>
       <span aria-hidden="true" class="text-outline-white">BILLIS</span>
@@ -27,11 +27,13 @@
     filter: 'blur(50px)',
   });
 
-  gsap.from('#hero-section h1', {
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.from('#hero-section h1', {
     yPercent: 200,
     autoAlpha: 0,
     duration: 1,
     delay: 0.3,
     ease: 'power1.out',
+  });
   });
 </script>

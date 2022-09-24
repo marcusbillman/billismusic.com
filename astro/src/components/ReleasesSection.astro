@@ -23,16 +23,18 @@ const { releases } = Astro.props;
 <script>
   import { gsap } from "gsap";
 
-  gsap.utils.toArray('[data-gsap="release"]').forEach((element, index) => {
-    gsap.from(element as gsap.DOMTarget, {
-      rotateX: 90,
-      opacity: 0,
-      ease: 'power1.out',
-      scrollTrigger: {
-        trigger: element as gsap.DOMTarget,
-        end: 'top 66%',
-        scrub: true,
-      },
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.utils.toArray('[data-gsap="release"]').forEach((element, index) => {
+      gsap.from(element as gsap.DOMTarget, {
+        rotateX: 90,
+        opacity: 0,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: element as gsap.DOMTarget,
+          end: 'top 66%',
+          scrub: true,
+        },
+      });
     });
   });
 </script>

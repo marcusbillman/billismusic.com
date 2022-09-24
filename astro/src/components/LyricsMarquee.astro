@@ -9,7 +9,7 @@ const duplicatedLines = [...lines, ...lines, ...lines, ...lines];
 ---
 
 <div aria-hidden="true" class="h-16 flex items-center gap-8 backdrop-blur-2xl border-y border-white/30 text-white/50 font-bold uppercase overflow-hidden">
-  <div class="flex items-center px-4 gap-8 animate-marquee-slow">
+  <div class="flex items-center px-4 gap-8 motion-safe:animate-marquee-slow">
     {duplicatedLines.map((line) => (
       <span class="whitespace-nowrap">{line}</span>
     ))}
