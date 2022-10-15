@@ -8,7 +8,7 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       title: 'Lines for Lyrics Marquee 1',
-      description: 'Shows below the Bio section.',
+      description: 'Shows below the Releases section.',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -16,7 +16,7 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       title: 'Lines for Lyrics Marquee 2',
-      description: 'Shows below the Releases section.',
+      description: 'Shows below the Bio section.',
       validation: (Rule) => Rule.required(),
     },
     {
