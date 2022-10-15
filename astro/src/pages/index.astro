@@ -32,9 +32,9 @@ const about: AboutDocument = await client.fetch('*[_type == "about"][0]');
     <main class="overflow-x-hidden">
       {bannerMessage.isEnabled && <Banner blocks={bannerMessage.content} url={bannerMessage.url} />}
       <Hero />
-      <BioSection blocks={bio.content} />
-      <LyricsMarquee lines={lyricsMarquee.lyricsMarquee1} />
       <ReleasesSection releases={releases} />
+      <LyricsMarquee lines={lyricsMarquee.lyricsMarquee1} />
+      <BioSection blocks={bio.content} />
       <LyricsMarquee lines={lyricsMarquee.lyricsMarquee2} />
       <AboutSection document={about} />
       <LyricsMarquee lines={lyricsMarquee.lyricsMarquee3} />
