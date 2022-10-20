@@ -1,0 +1,30 @@
+---
+import type { InstagramPost } from "../utilities/instagram";
+
+export interface Props {
+  post: InstagramPost;
+}
+
+const { post } = Astro.props;
+
+const formatDateString = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+};
+---
+
+{post.mediaType !== 'CAROUSEL_ALBUM' && (
+  <a href={post.permalink} target="_blank">
+    {post.mediaType === 'IMAGE' && (
+      <img src={post.mediaUrl} alt="Instagram post" class="block w-full aspect-square object-cover mb-8" />
+    )}
+    {post.mediaType === 'VIDEO' && (
+      <video src={post.mediaUrl} class="block w-full aspect-square bg-black mb-8" autoplay muted loop controls />
+    )}
+    <div class="flex flex-col gap-4">
+      <p class="font-bold text-white/50">@{post.username}</p>
+      <p class="font-bold line-clamp-3">{post.caption}</p>
+      <p class="text-white/50 uppercase">{formatDateString(post.timestamp)}</p>
+    </div>
+  </a>
+)}
