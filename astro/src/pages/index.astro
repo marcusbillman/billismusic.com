@@ -1,15 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Banner from '../components/Banner.astro';
-import Hero from '../components/Hero.astro';
-import BioSection from '../components/BioSection.astro';
-import LyricsMarquee from '../components/LyricsMarquee.astro';
-import ReleasesSection from '../components/ReleasesSection.astro';
 import AboutSection, { AboutDocument } from '../components/AboutSection.astro';
+import Banner from '../components/Banner.astro';
+import BioSection from '../components/BioSection.astro';
 import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import InstagramSection from '../components/InstagramSection.astro';
+import Layout from '../layouts/Layout.astro';
+import LyricsMarquee from '../components/LyricsMarquee.astro';
 import Navigation from '../components/Navigation.astro';
+import ReleasesSection from '../components/ReleasesSection.astro';
 
 import sanityClient, { SanityDocument } from '@sanity/client';
+import { fetchInstagramPosts } from '../utilities/instagram';
 
 const client = sanityClient({
   projectId: import.meta.env.SANITY_PROJECT_ID,
@@ -23,6 +25,8 @@ const bio: SanityDocument = await client.fetch('*[_type == "bio"][0]');
 const lyricsMarquee: SanityDocument = await client.fetch('*[_type == "lyricsMarquee"][0]');
 const releases: SanityDocument[] = await client.fetch('*[_type == "release"] | order(releaseDate desc)[0..4] {..., "coverArtUrl": coverArt.asset->url, "previewAudioUrl": previewAudio.asset->url}');
 const about: AboutDocument = await client.fetch('*[_type == "about"][0]');
+
+const instagramPosts = await fetchInstagramPosts();
 ---
 
 <Layout description="Billis is a rapper and producer from northern Sweden.">
@@ -38,6 +42,7 @@ const about: AboutDocument = await client.fetch('*[_type == "about"][0]');
       <LyricsMarquee lines={lyricsMarquee.lyricsMarquee2} />
       <AboutSection document={about} />
       <LyricsMarquee lines={lyricsMarquee.lyricsMarquee3} />
+      <InstagramSection posts={instagramPosts} />
       <Footer />
     </main>
   </div>
