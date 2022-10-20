@@ -11,10 +11,9 @@ const { posts } = Astro.props;
 ---
 
 <section class="py-24 lg:py-64">
-  <ul class="flex gap-8 overflow-x-scroll scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-black/50 px-4 pb-4 mb-16 hover:scrollbar-thumb-white/50 lg:gap-12 lg:pb-8 lg:mb-32">
-    <!-- TODO: Custom scrollbar, fade items near viewport edge -->
+  <ul data-gsap="instagram-scroller" class="flex gap-8 overflow-x-scroll scrollbar-thin scrollbar-thumb-white/30 px-4 pb-4 mb-16 hover:scrollbar-thumb-white/50 lg:gap-12 lg:pb-8 lg:mb-32">
     {posts.map((post) => (
-      <li class="w-64 max-w-[80%] flex-shrink-0 lg:w-96">
+      <li data-gsap="instagram-post" class="w-64 max-w-[80%] flex-shrink-0 last:mr-[30%] lg:w-96">
         <InstagramPost post={post} />
       </li>
     ))}
@@ -30,3 +29,24 @@ const { posts } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+
+  gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+    gsap.utils.toArray('[data-gsap="instagram-post"]').forEach((element, index) => {
+      gsap.from(element as gsap.DOMTarget, {
+        opacity: 0,
+        scale: 0.8,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: element as gsap.DOMTarget,
+          scroller: '[data-gsap="instagram-scroller"]',
+          end: 'left 50%',
+          horizontal: true,
+          scrub: true,
+        },
+      })
+    });
+  });
+</script>
