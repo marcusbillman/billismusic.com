@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@sanity/types": "^2.31.1",
-    "@types/react": "^18.0.18"
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@types/react": "^18.0.18",
+    "tailwind-scrollbar": "^2.1.0-preview.0"
   }
 }
