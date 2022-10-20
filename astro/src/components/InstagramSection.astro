@@ -11,7 +11,7 @@ const { posts } = Astro.props;
 ---
 
 <section class="px-4 py-24 lg:py-64">
-  <ul class="flex gap-8 overflow-x-scroll scrollbar-thumb-white/30 scrollbar-track-black/50 pb-4 mb-16 hover:scrollbar-thumb-white/50 md:scrollbar-thin lg:gap-16 lg:pb-8 lg:mb-32">
+  <ul class="flex gap-8 overflow-x-scroll scrollbar-thin scrollbar-thumb-white/30 scrollbar-track-black/50 pb-4 mb-16 hover:scrollbar-thumb-white/50 lg:gap-16 lg:pb-8 lg:mb-32">
     <!-- TODO: Custom scrollbar, fade items near viewport edge -->
     {posts.map((post) => (
       <li class="w-64 max-w-[80%] flex-shrink-0 lg:w-96">
