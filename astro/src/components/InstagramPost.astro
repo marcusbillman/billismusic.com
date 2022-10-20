@@ -19,7 +19,7 @@ const formatDateString = (dateString: string) => {
       <img src={post.mediaUrl} alt="Instagram post" class="block w-full aspect-square object-cover mb-8" />
     )}
     {post.mediaType === 'VIDEO' && (
-      <video src={post.mediaUrl} class="block w-full aspect-square bg-black mb-8" autoplay muted loop controls />
+      <video src={post.mediaUrl} class="block w-full aspect-square object-cover mb-8" autoplay muted loop controls />
     )}
     <div class="flex flex-col gap-4">
       <p class="font-bold text-white/50">@{post.username}</p>
