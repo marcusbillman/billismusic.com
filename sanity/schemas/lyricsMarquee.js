@@ -27,6 +27,14 @@ export default {
       description: 'Shows below the About section.',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'lyricsMarquee4',
+      type: 'array',
+      of: [{ type: 'string' }],
+      title: 'Lines for Lyrics Marquee 4',
+      description: 'Shows below the Instagram section.',
+      validation: (Rule) => Rule.required(),
+    },
   ],
   __experimental_actions: [/*'create',*/ 'update', /*'delete',*/ 'publish'],
 };
