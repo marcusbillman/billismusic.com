@@ -11,7 +11,7 @@ const { posts } = Astro.props;
 ---
 
 <section class="py-24 lg:py-64">
-  <ul data-gsap="instagram-scroller" class="flex gap-8 overflow-x-scroll scrollbar-thin scrollbar-thumb-white/30 px-4 pb-4 mb-16 hover:scrollbar-thumb-white/50 lg:gap-12 lg:pb-8 lg:mb-32">
+  <ul data-gsap="instagram-scroller" class="flex gap-8 mask-gradient overflow-x-scroll scrollbar-thin scrollbar-thumb-white/30 px-4 pb-4 mb-16 hover:scrollbar-thumb-white/50 lg:gap-12 lg:px-32 lg:pb-8 lg:mb-32">
     {posts.map((post) => (
       <li data-gsap="instagram-post" class="w-64 max-w-[80%] flex-shrink-0 last:mr-[30%] lg:w-96">
         <InstagramPost post={post} />
@@ -38,6 +38,7 @@ const { posts } = Astro.props;
       gsap.from(element as gsap.DOMTarget, {
         opacity: 0,
         scale: 0.8,
+        filter: 'blur(10px)',
         ease: 'power1.out',
         scrollTrigger: {
           trigger: element as gsap.DOMTarget,
