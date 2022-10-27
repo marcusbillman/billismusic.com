@@ -9,7 +9,7 @@ export interface Props {
 const { icon, primary = false } = Astro.props;
 ---
 
-<a class={`flex items-center justify-center grow-0 w-max border cursor-pointer group hover:bg-white/30 hover:border-white transition-colors ${primary ? 'border-orange/30 hover:bg-orange/30 hover:border-orange' : 'border-white/30'} rounded-full p-4`}>
+<a target="_blank" class={`flex items-center justify-center grow-0 w-max border cursor-pointer group hover:bg-white/30 hover:border-white transition-colors ${primary ? 'border-orange/30 hover:bg-orange/30 hover:border-orange' : 'border-white/30'} rounded-full p-4`}>
   <span class={primary ? 'text-orange' : 'text-white'}>
     <Icon name={icon} />
   </span>
