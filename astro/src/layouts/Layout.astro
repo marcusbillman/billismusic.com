@@ -42,6 +42,10 @@ const { title, description } = Astro.props;
         .perspective {
           perspective: 1000px;
         }
+
+        .mask-gradient {
+          -webkit-mask-image: linear-gradient(to right, theme(colors.black) 80%, theme(colors.transparent));
+        }
       }
 
       html {
